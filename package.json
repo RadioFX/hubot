@@ -1,6 +1,6 @@
 {
   "name": "makeomatic-hubot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Vitaly Aminev <v@makeomatic.ru>",
   "description": "ci/cd helper",
   "scripts": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "coffee-script": "^1.10.0",
     "hubot": "^2.19.0",
-    "hubot-adapter-telegram": "^0.1.6",
+    "hubot-adapter-telegram": "^0.1.7",
     "hubot-diagnostics": "0.0.1",
     "hubot-help": "^0.2.0",
     "hubot-redis-brain": "0.0.3"
