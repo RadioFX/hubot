@@ -6,6 +6,8 @@ deployed on [Heroku][heroku] to get you up and running as quick as possible.
 
 ## Configuration Env Variables
 
+ALl of these must be specified.
+
 | Env variable | Example |
 |:-------------|:------------|
 | HUBOT_JANKY_URL | https://user:password@janky.example.com/_hubot/ |
@@ -16,3 +18,17 @@ deployed on [Heroku][heroku] to get you up and running as quick as possible.
 | HUBOT_NAME | hubot |
 
 Generate secret: `dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64`
+
+## Sample configuration
+
+```sh
+docker run \
+  -v ~/projects/rfx-chef/.chef/:/src/.chef \
+  -v ${PWD}/scripts:/src/scripts \
+  -e "TELEGRAM_TOKEN=221932505:.........." \
+  -e "HUBOT_NAME=hubot" \
+  -e "HUBOT_RBAC_POWER_USERS=51661165" \
+  -e "HUBOT_JANKY_URL=http://janky.localhost/_hubot" \
+  -e "HUBOT_LOG_LEVEL=debug" \
+  --rm -it --name hubot makeomatic/hubot
+```

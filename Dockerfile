@@ -1,4 +1,4 @@
-FROM makeomatic/alpine-node:6.2.1-ruby
+FROM makeomatic/node:6.2.1-ruby
 
 WORKDIR /src
 
@@ -14,13 +14,11 @@ RUN apk add --no-cache --update --virtual .ruby-buildDeps build-base \
       | sort -u \
   )" \
   && apk add --virtual .ruby-rundeps $runDeps \
-    libstdc++ \
-    libgcc \
   && apk del .ruby-buildDeps
 
 # cache npm modules
 COPY package.json /src/
-RUN npm install
+RUN npm install --production
 
 # move source code
 COPY ./ /src/
